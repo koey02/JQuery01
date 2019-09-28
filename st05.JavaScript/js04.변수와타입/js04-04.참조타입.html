@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <script>
+    /* 참조 타입 */
+
+    /* 배열선언 */
+    var array1 = [2,3,4,5,6];
+    var array2 = ['a','bc','d','efg'];
+    var array3 = [2,'b',true,undefined,null];
+
+    console.log (typeof array1, array1);
+    console.log (typeof array2, array2);
+    console.log (typeof array3, array3);
+    /* 함수선언 */
+    var f = function (){
+        console.log ('함수 호출');
+    };
+    console.log (typeof f, f);
+    f();
+
+    /* 객체선언 */
+        var obj = {
+            name: "you",
+            height : "100px",
+            width : "50px",
+            age : 25,
+            male : true
+        };
+        console.log (typeof obj, obj);
+    
+    </script>
     
 
 </head>
 <body>
 
 </body>
-</html>
+</html>
