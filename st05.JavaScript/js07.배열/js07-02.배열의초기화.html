@@ -5,15 +5,22 @@
     <title>배열초기화</title>
     <style></style>
     <script>
-    var arr2 = ['abc',true];
-    console.log (arr2.length);
-    console.log (arr2[0]);
+     var arr2 = ['abc',true];
+  /*  console.log (arr2.length);
+    console.log (arr2[0]); */
 
     var arr3 = [273,'string',true,[57, 39.23], {name : 'you'} ];
-    console.log (arr3.length);
+    /*console.log (arr3.length);
     console.log (arr3[0]);
-    console.log (arr3[arr3.length-1]);
+    console.log (arr3[arr3.length-1]);*/
 
+    var members = ['first',1,2,3,true,'last'];
+    var size = members.length;
+    
+    console.log(size);
+    for (var i =0; i<size; i++){
+        console.log('index='+i,'value='+members[i]);
+    }
 
     </script>
     
