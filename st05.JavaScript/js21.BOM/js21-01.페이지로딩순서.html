@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	
+    <script>
+        window.onload = function (event) {
+            alert('페이지 onload 실행');
+            console.log('페이지 onload 실행');
+        };
+        window.onbeforeunload = function (event) {
+            console.log('페이지 onbeforeunload 실행');
+        };
+    </script>
 </head>
 <body>
-    
+    <script>console.log('  body  p 앞에 '); </script>
     <p> body 안에...</p>
+
+    <script>console.log('  body  p 뒤에 '); </script>
     
     <a href="http://www.naver.com">naver</a>
 </body>

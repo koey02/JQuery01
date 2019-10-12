@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+    <script>
+
+        function add( ) {
+            return 0+1;
+        }
+
+        var x;
+        x= add();
+
+        console.log(x);
+
+        // 1+'2'의 결과를 리턴하는 add2함수
+        var add2 = function ( ) {
+            return 1+'2';
+        }
+        x= add2();
+        console.log(x);
+
+        // 1+'2'를 입력으로 넘기고 결과를 리턴하는 add3함수
+
+        var add3 = function (x, y) {
+            return x+y;           
+        }
+
+        x = add3(2,'b');
+        console.log(x);
+
+        x = add3(1,2);
+        console.log(x);
+
+        //함수의 입력(매개변수)을 넘기지 않고 그결과를 출력
+        var a = add3(); //x->undefined,y->undefined -> NaN
+        console.log(a);
+
+        
+
+    </script>
     
 </head>
 <body>
 
 </body>
-</html>
+</html>

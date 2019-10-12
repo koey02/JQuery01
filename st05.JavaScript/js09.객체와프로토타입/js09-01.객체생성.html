@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    
+    <script>
+        var name = 'foo';       //변수-->프로퍼티
+        var age = 30;
+        var run = function () { //함수 --> 메소드
+            console.log('run');
+        }
+
+        var person = {
+            name : 'foo',
+            age : 30,
+            run : function () {
+                console.log('person-run');
+            },
+        };
+
+        // CRUD : R
+        console.log( person.name ); // 읽기 - 마침표 표기법
+        console.log( person['name'] ); // 읽기 - 대괄호표기법(객체는 방이름이 있는 배열이다.)
+
+        //CRUD : C
+        person.gender = 'man';
+        //CRUD : U 
+        person.name = 'Poo';
+
+
+    </script>
 
     
 </head>
 <body>
 
 </body>
-</html>
+</html>

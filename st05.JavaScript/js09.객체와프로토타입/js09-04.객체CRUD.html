@@ -3,7 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    
+    <script>
+        var foo = {
+            name : 'foo',
+            age : 30,
+            array : [1,2,3],
+            run : function () {
+                return this.name;
+            }
+        };
+
+        // CRUD - C
+        foo.gender = 'man';
+        console.log(foo.gender);
+
+        foo.nickname = 'lion';
+        console.log(foo.nickname);
+
+        // CRUD - R
+        console.log (foo.name);
+        console.log (foo['name']);
+
+        // CRUD - U
+        foo.name = 'X';
+        console.log (foo.name);
+
+        // CRUD - D
+        delete foo.gender;
+        console.log(foo.gender);
+
+        delete foo.nickname;
+        console.log(foo.nickname);
+
+        //객체 프로퍼티 열거 -- 많이 씀
+        for (var name in foo) {
+            console.log (name, foo[ name ]); //for문에서는 대괄호표기법을 사용할수 밖에 없음
+        }
+
+    </script>
 </head>
 <body>
 
