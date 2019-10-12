@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+            var name = '홍길동';
+            console.log(name);
+
+            var a = 0;
+            for(var i=0; i<10; i++){
+                console.log('i의 값은 '+i);
+            }
+
+            var sum =0;
+            for (var k=1;k<=10;k++){
+                sum += k;
+                console.log ('sum'+k+' : '+sum);
+            }
+            console.log ('1부터 10까지의 합계는 '+sum);
+
+            //1부터 100까지의 홀수의 합계를 구하시오.
+            var odd;
+            var sum_odd = 0;
+            for (var j=0;j<100;++j){
+                odd = j%2;
+                if (odd>0){
+                    sum_odd += j;
+                //    console.log (j+':'+sum_odd);
+                }
+            }
+            console.log ('1부터 '+j+'까지의 홀수의 합계 : '+sum_odd);
+
+            //2부터 100까지의 짝수의 합계를 구하시오.
+            var JJack;
+            var sum_JJack = 0;
+            for (var m=2;m<=100;m++){
+                JJack = m%2;
+                if (JJack==0){
+                    sum_JJack += m;
+                //    console.log (m+':'+sum_odd);
+                }
+            }
+            console.log ('2부터 '+m+'까지의 짝수의 합계 : '+sum_JJack);
+
+            //1부터 100까지 3의 배수를 구하는 방법
+            var sum3 = 0;
+            for (var n=1;n<=100;n++){
+                if ((n%3)==0){
+                    console.log ('3의 배수 : '+n);
+                    sum3 += n;
+                }
+            }
+            console.log ('1부터 100까지의 3의 배수 합계 : '+sum3);
+    
+        </script>
+    
     
 </head>
 <body>
 
 </body>
-</html>
+</html>

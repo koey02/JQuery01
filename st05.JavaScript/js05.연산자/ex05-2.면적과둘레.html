@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <title>면적과 둘레 구하기</title>
     <style></style>
+
+    <script>
+
+        var w ;
+        var h ;
+
+        w = prompt( '가로길이를 입력하세요', '0' );
+        h = prompt( '세로길이를 입력하세요', '0' );
+
+        //문자-->숫자로 변환
+        w = Number(w);
+        h = Number(h);
+
+        var area = w*h;
+        var parameter = 2*(w+h);
+
+
+        console.log ('area = '+ area);
+        console.log ('parameter = '+ parameter);
+
+        document.write ('사각형의 넓이: '+area+'<br>');
+        document.write ('사각형의 둘레: '+parameter);
+
+
+    </script>
     
 </head>
 <body>
 </body>
-</html>
+</html>

@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	
+    <script>
+    var grade =0;
+        grade = prompt ('점수를 입력하세요.');
+
+    console.log('점수 : '+grade);
+    var grade1 = Number (grade);
+    var grade2;
+    if (grade1 >= 90){
+        grade2 = 'A';
+    }
+    else if (grade1 >= 80){
+        grade2 = 'B';
+    }
+    else if (grade1 >= 70){
+        grade2 = 'C';
+    }
+    else if (grade1 >= 60){
+        grade2 = 'D';
+    }
+    else{
+        grade2 = 'F';
+    }
+    console.log('등급 : '+grade2);
+
+    document.write('점수 : '+grade+'<br>');
+    document.write('등급 : '+grade2);
+
+    </script>
 </head>
 <body>
 
 </body>
-</html>
+</html>
