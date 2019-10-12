@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>배열 요소 추가</title>
-    
+    <script>
+        var arr = ['zero','one','two'];
+
+        //3번칸에 three를 추가하시오.
+        arr[3] = 'three';
+        
+        // 100번칸에 '백'을 추가하시오.
+        arr[100] = '백';
+
+
+        //99번칸의 값을 출력하시오.
+        console.log(arr[99]);
+
+        //마지막 방번호 100번칸 = arr.length-1
+        console.log(arr[100]);
+        console.log(arr[arr.length-1]);
+
+       /* for (var i =0; i<101; i++){
+            console.log(arr[i]);
+        }
+
+       for (var j =0; j<arr.length; j++){
+            console.log(arr[j]);
+        }
+        */
+
+        // 수정 : 0번칸의 값을 update로 바꾸시오.
+        arr[0] = 'update';
+        console.log(arr[0]);
+
+        //삭제, 칸지우기 splice()
+        console.log('arr[3] :'+arr[3]);
+        var size1 = arr.length-1; 
+        console.log ('last index ='+size1);
+        
+        console.log ('------------------3번방 삭제-----------------');
+        arr.splice (3,1);
+        console.log('arr[3] :'+arr[3]);
+        
+        size1 = arr.length-1; 
+        console.log ('last index ='+size1);
+        
+        console.log ('----------------마지막번방 삭제---------------');
+        arr.splice (arr.length-1,1);
+        
+        size1 = arr.length-1; 
+        console.log ('last index ='+size1);
+        console.log ('last value ='+arr[size1]);
+ 
+    </script>
 </head>
 <body>
 
 </body>
-</html>
+</html>

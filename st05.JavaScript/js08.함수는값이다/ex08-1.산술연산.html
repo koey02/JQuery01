@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>산술 연산</title>
-    
+    <script>
+        function Add (x,y){
+            return x+y;
+        }
+        function Sub (x,y){
+            return x-y;
+        }
+        function Mul (x,y){
+            return x*y;
+        }
+        function Div (x,y){
+            return x/y;
+        }
+
+        var a = Number(prompt ('첫번째 숫자를 입력하세요.'));
+        var b = Number(prompt ('두번째 숫자를 입력하세요.'));
+        var c = 0;
+
+        //더하기
+        c = Add(a,b);
+        console.log('Add : '+c);
+
+        //빼기
+        c = Sub(a,b);
+        console.log('Sub : '+c);
+
+        //곱하기
+        c = Mul(a,b);
+        console.log('Mul : '+c);
+
+        //나누기
+        c = Div(a,b);
+        console.log('Div : '+c);
+    </script>
 </head>
 <body>
 
 </body>
-</html>
+</html>
