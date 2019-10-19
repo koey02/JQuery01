@@ -16,4 +16,99 @@
     <img id='img' src="images/00.png">
 
 </body>
-</html>
+</html>
+
+<script>
+    //변수선언
+    var timer = null;
+
+    //이미지가 들어있는 배열작성
+    var png = [
+        'images/00.png'
+        ,'images/01.png'
+        ,'images/02.png'
+        ,'images/03.png'
+        ,'images/04.png'
+        ,'images/05.png'
+        ,'images/06.png'
+        ,'images/07.png'
+        ,'images/08.png'
+        ,'images/09.png'
+        ,'images/10.png'
+        ,'images/11.png'
+        ,'images/12.png'
+        ,'images/13.png'
+        ,'images/14.png'
+    ];
+
+    //이벤트 핸들러(이벤트리스너) 작성 : 찾고 설정
+    //1. id = 'img'를 찾는다.
+    //2. 찾은 태그(객체)에 src값을 바꾼다.
+    
+    var prev = document.getElementById  ('prev');
+        prev.onclick = function (event) {
+        // alert ('prev 클릭');
+        var sno = img.src.substr(img.src.length-6,2); // 00,01,02~
+    // 문자 sno를 숫자로 변환
+        console.log(png.length);
+        var ino = Number(sno);
+        if (ino > 0){
+            img.src = png[ino-1];
+        }
+        else{
+            img.src = png[13];
+        }
+            
+        }
+
+    var next = document.getElementById  ('next');
+        next.onclick = function (event) {
+    //alert ('next 클릭');
+    //현재 그림의 번호 추출하기
+      var sno = img.src.substr(img.src.length-6,2); // 00,01,02~
+    // 문자 sno를 숫자로 변환
+        var ino = Number(sno);
+        if (ino<14) {
+            img.src = png[ino+1];
+        }
+        else{
+            img.src = png[0];
+        }
+       
+        }
+
+    var startBtn = document.getElementById  ('start');
+    var stopBtn = document.getElementById  ('stop');
+
+    // 시작버튼이 눌리면 시작버튼을 비활성화, 정지버튼을 활성화
+    startBtn.onclick = function (event) {
+        startBtn.disabled = true;
+        stopBtn.disabled = false; 
+
+        // => 표시는 함수를 의미하나 IE10부터 안되므로 function으로 표시하는 습관을 들여야함
+        timer = setInterval (function(event){
+            var sno = img.src.substr(img.src.length-6,2); // 00,01,02~
+             // 문자 sno를 숫자로 변환
+             var ino = Number(sno);
+             if (ino<14) {
+                img.src = png[ino+1];
+            }
+            else{
+                img.src = png[0];
+            }
+
+        },100);
+
+    }
+
+    // 정지버튼이 눌리면 정지버튼을 비활성화, 시작버튼을 활성화
+    stopBtn.onclick = function (event) {
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        
+        clearInterval ( timer /*timer 정보*/);
+        
+    }
+
+
+</script>

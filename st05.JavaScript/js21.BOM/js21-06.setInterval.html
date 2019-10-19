@@ -13,4 +13,32 @@
     <div id="result">   </div>
 </p>
 </body>
-</html>
+</html>
+<script>
+    var startBtn = document.getElementById ('start');
+    var stopBtn = document.getElementById ('stop');
+
+    var result = document.getElementById ('result');
+
+    // 시작버튼이 눌리면 시작버튼을 비활성화, 정지버튼을 활성화
+    startBtn.onclick = function (event) {
+        alert ('시작 버튼이 눌렸습니다.');
+        startBtn.disabled = true;
+        stopBtn.disabled = false; 
+
+        setInterval (function(event){
+            var datetime = new Date();
+            result.innerHTML = datetime;
+        },1000        );
+
+    }
+
+    // 정지버튼이 눌리면 정지버튼을 비활성화, 시작버튼을 활성화
+    stopBtn.onclick = function (event) {
+        alert ('정지 버튼이 눌렸습니다.');
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        
+    }
+
+</script>
