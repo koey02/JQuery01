@@ -1,0 +1,10 @@
+
+// Git 초기화 -- ID 변경
+C:\Users\user>git config --global user.name "koey02"
+
+C:\Users\user>git config --global user.email koey02@hotmail.com
+
+
+remote: Permission to koey02/JQuery01.git denied to sksnyp.
+fatal: unable to access 'https://github.com/koey02/JQuery01/': The requested URL returned error: 403
+->https://recoveryman.tistory.com/392
