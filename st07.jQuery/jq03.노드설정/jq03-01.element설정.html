@@ -53,24 +53,51 @@
         var result = $('p.pclick').html();
 
         $('#result_element').html(result);
-        //alert (result);
     });
     $('#element_create').on ('click', function () {
-        var result = $('p.pclick').html();
-  
         // <img src = "images/im1.jpg">
         $('#result_element').html('<img src ="images/im1.jpg">');
 
-        //alert (result);
     });
     $('#element_update').on ('click', function () {
         var result = $('p.pclick').html();
-        //alert (result);
+        
+        $('#result_element').html(result);
     });
     $('#element_delete').on ('click', function () {
-        var result = $('p.pclick').html();
-        //alert (result);
+        //var result = $('p.pclick').html();
+        // 1.내용삭제
+        //$('#result_element').html('');
+        $('#result_element').empty();
+        //2.element삭제
+        //$('#result_element').remove();
+
     });
+
+    //html : 태그까지 모두 가져옴
+    //text : 태그는 빼고 문자만 가져옴
+$('.text_read').on('click',function(event){
+    //alert('text_read');
+    var result = $('li.text_read').text();
+    window.alert(result);
+    var result2 = $('p.pclick').text();
+    window.alert(result2);
+});
+$('.text_create').on('click',function(event){
+    var result = $('li.text_create').text();
+    result = result +' > 추가';
+    $('li.text_create').text(result);
+});
+$('.text_update').on('click',function(event){
+    //변수의 값을 찾은 태그의 자식으로 추가
+    var result = $('p.pclick').text(); 
+    $('.text_update').text(result); 
+//    $('.text_update').append(result); 
+});
+$('.text_delete').on('click',function(event){
+//    alert('text_delete');
+    $('.text_delete').text('');
+});
 
 
 </script>

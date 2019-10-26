@@ -49,5 +49,71 @@
 </html>
 
 <!-- 임포트 -->
+<script src="../jquery-3.4.1.js"></script>
+<script>
 
-
+//val()        
+$('#value_read').on('click',function (event) {
+    //var result = $('#text').val(); -> 실제로 $('#text').attr('value');
+    var result = $('#text').attr('value');
+    alert (result);
+});
+$('#value_create').on('click',function (event) {
+    var result = $('#text').val();
+    result = result +' > 추가';
+    $('#text').val(result);
+});
+$('#value_update').on('click',function (event) {
+    var result = $('#value_update').text();
+    $('#text').val(result);
+});
+$('#value_delete').on('click',function (event) {
+    $('#text').val('');
+});
+
+// attr() vs prop()
+$('#prop_read').on('click',function (event) {
+
+    // disabled, checked는 attr로 설정이 안됨->대상이 javascript->dom tree에 설정해야함->prop()사용
+  
+    var result = $('input[type=checkbox]').attr('checked');
+    alert (result);
+
+    var result = $('input[type=checkbox]').prop('checked');
+    alert (result);
+    
+});
+$('#prop_create').on('click',function (event) {
+
+    $('input[type=radio]').attr('checked','checked');
+
+    var result = $('input[type=radio]').attr('checked');
+    alert(result);
+
+    var result = $('input[type=radio]').prop('checked');
+    alert(result);
+});
+$('#prop_update').on('click',function (event) {
+    
+    //$('input[type=checkbox]').attr('disabled','disabled');
+    // checked<->unchecked
+    var isChecked = $('input[type=checkbox]').prop('checked');
+    if (isChecked){
+        $('input[type=checkbox]').prop('checked', false);
+    }
+    else{
+        $('input[type=checkbox]').prop('checked', true);
+    }
+});
+$('#prop_delete').on('click',function (event) {
+    //var isDisabled = $('input[name=ccc]').prop('disabled');
+    //if (isDisabled){
+        //$('input[name=ccc]').prop('disabled', false);
+        $('input[name=ccc]').removeAttr('disabled');
+    //}
+
+});
+   
+</script>
+
+

@@ -11,8 +11,6 @@
         button  { cursor: pointer; }
         img     { padding:5px; width:130px; height:130px; border:1px solid gray; }
 
-        #style  {  border: 1px dotted green; }
-
         .gray   { background-color: #959FA9; height: 20px; margin-top: 10px; }
         .white  { background-color: white; }
         .red    { background-color: red !important;}
@@ -42,7 +40,7 @@
 
     <div>
         <h4>style 속성 CRUD</h4>
-        <span id="style" style="background-color: white;">엘리먼트에 style CRUD 하기</span>
+        <span id="style" style="background-color: white; border: 1px dotted green;">엘리먼트에 style CRUD 하기</span>
 
         <button id="style_read"  >style 읽기(R)</button>
         <button id="style_create">style 추가(C)</button>
@@ -77,5 +75,98 @@
 </html>
 
 <!-- 임포트 -->
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $('#attr_read').on('click',function(event){
+        //태그 찾아서 속성값 읽기
+    var attr1 = $('#img1').attr('src'); //읽기 - attr에 변수가 하나 들어감
+    $('#result_attr').text(attr1);
+    
+    });
+    $('#attr_create').on('click',function(event){
+        //태그찾아서 src 속성 값추가
+        $('#img2').attr('src', 'images/im2.jpg'); //쓰기 - attr에 변수가 두개 들어감
+    });
+    $('#attr_update').on('click',function(event){
+        var result  = $('#img2').attr('src');
+        var result2 = result.substr (9,1);
+        //alert (result);
+        //alert (result2);
 
-
+        var result3 = Number(result2)+1;
+        //alert (result3);
+        var result4 = result.substr (0,9)+result3 + result.substr (10,4);
+        //alert (result4);
+        //$('#img2').attr('src', 'images/im3.jpg'); //쓰기 - attr에 변수가 두개 들어감
+        $('#img2').attr('src',result4); //쓰기 - attr에 변수가 두개 들어감
+    });
+    $('#attr_delete').on('click',function(event){
+        //alert ('attr_delete');
+        //$('#img2').attr('src', ''); //쓰기 - attr에 변수가 두개 들어감
+        $('#img2').removeAttr('src'); 
+    });
+    
+    
+    $('#style_read').on('click',function(event){
+        //alert ('style_read');
+        var result = $('#style').css('border');
+        $('#result_style').html( result );
+    });
+    $('#style_create').on('click',function(event){
+        
+        var style1 = $('#style').css('border');
+        //alert ('style='+style1);
+        var px = 3;
+        var pattern = 'solid';
+        var color = 'blue';
+        var style2 = px+'px '+pattern+' '+color;
+        //alert ('style2='+style2);
+        //$('#style').css( 'border','3px solid blue' );
+        $('#style').css( 'border',style2 );
+    });
+    $('#style_update').on('click',function(event){
+        //alert ('style_update');
+        $('#style').css( 'border','3px dotted blue' );
+
+    });
+    $('#style_delete').on('click',function(event){
+        //alert ('style_delete');
+        $('#style').css( 'border','' );
+    });
+
+    $('#class_read').on('click',function(event){
+        //alert ('class_read');
+        var result = $('#class').hasClass('white'); // -> true
+        window.alert(result);
+
+        var result2 = $('#class').attr('class');      // -> white
+        window.alert(result2);
+    });
+    $('#class_create').on('click',function(event){
+        //alert ('class_create');
+        $('#class').addClass('red');
+    });
+    $('#class_update').on('click',function(event){
+        //alert ('class_update');
+        var result = $('#class').hasClass('red');
+        if (result == true){
+            $('#class').removeClass('red');
+            $('#class').addClass('yellow');
+        }
+    });
+    $('#class_delete_part').on('click',function(event){
+        //alert ('class_delete_part');
+        var result = $('#class').hasClass('white');
+        if (result) $('#class').removeClass('white');
+    });
+    $('#class_delete_all').on('click',function(event){
+        //alert ('class_delete_all');
+        $('#class').removeClass();
+    });
+
+    $('p.yellow').on('click',function(){
+        $('p.yellow').toggleClass('red');
+    });
+</script>
+
+
