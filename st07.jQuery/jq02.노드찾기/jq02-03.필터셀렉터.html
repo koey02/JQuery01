@@ -63,4 +63,34 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+//click 이벤트 핸들러 설정
+// input id='checked'  에 click 이벤트 핸들러 설정
+ //input id='radio'    에 click 이벤트 핸들러 설정
+ //input id='selected' 에 click 이벤트 핸들러 설정
+  //input id='hobby'    에 click 이벤트 핸들러 설정
+
+  $('#checked').on('click', function (event) {
+     //window.alert ('checked'); 
+     //style = "border:1px dotted red;"<-- 테두리 설정시 Input 이외의 태그는
+    //style = "outline:1px dotted red;" <-- 테두리 설정시 Input 태그는
+     $('input[type="checkbox"]:checked').css('outline','1px dotted red');
+  });
+  $('#radio').on('click', function (event) {
+    //window.alert ('radio'); 
+    $('input[type="radio"]:checked').css('outline','1px dotted red');
+  });
+  $('#selected').on('click', function (event) {
+    //window.alert ('selected'); 
+    $('select>option:selected').css('outline','1px dotted red');
+  });
+  $('#hobby').on('click', function (event) {
+    //window.alert ('hobby'); 
+    $('input[name="hobby"]:input[value="music"]').attr("checked",true);
+    $('input[name="hobby"]:input[value="reading"]').attr("checked",true);
+    
+  });
+
+</script>
+

@@ -8,6 +8,7 @@
         .redtext   { color : #f00   }
         .italictext { font-style: italic;   }
     </style>
+    <script src = "../jquery-3.4.1.js"></script>
 
 </head>
 <body>
@@ -22,5 +23,33 @@
 
 
 <!-- jqyery 임포트 -->
+<script>
+    /*작업1. javascript로 class 추가
+    * 1. javascript로 id= "btn"을 찾고 이벤트 핸들러 설정
+    * 2. 이벤트 핸들러에서 span 태그를 찾고 class="redtext"를 적용
+    */
 
-
+    var btn1 = document.getElementById ('btn1');
+    btn1.onclick = function (event) {
+        var span = document.getElementsByTagName ('span'); //=> 배열
+        //span이 배열이기 때문에 for문 작성
+        for (var i=0;i<span.length;i++){
+            // ???.className == <태그명 class ="redtext"/>
+            span[i].className = 'redtext italictext'; //빨간색 이탤릭체 동시 적용
+        }
+    }
+    
+    /*작업2. jquery로 class 추가
+    * 1. javascript로 id= "btn2"을 찾고 이벤트 핸들러 설정
+    * 2. 이벤트 핸들러에서 span 태그를 찾고 class="redtext"를 적용
+    */
+    
+    $('#btn2' /*선택자*/).on ('click' ,  function(event){
+        $('span').addClass('redtext italictext' /*클래스속성*/);
+    });
+
+    
+    
+    </script>
+
+

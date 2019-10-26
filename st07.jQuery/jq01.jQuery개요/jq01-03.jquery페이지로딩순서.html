@@ -13,5 +13,17 @@
 </body>
 </html>
 
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function (event) {
+        window.alert ('document.ready'); //호출순서 : 2    
+    });
+
+    $(window).on('load', function (event) {
+        window.alert ('window.load');    //호출순서 : 1
+    })
+
+</script>
+
 <!-- 임포트 -->
-
+
