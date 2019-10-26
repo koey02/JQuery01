@@ -59,4 +59,56 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$('.parents').on('click',function (event) {
+    //style 속성 -> css
+    //class속성 -> addClass, removeClass()
+    //조상태그 {border:1px dotted black}
+    $('#center').parents().css('border','1px dotted black');
+});
+$('.parent').on('click',function (event) {
+    //부모태그
+    $('#center').parent().css('border','1px dotted black');
+});
+$('.prevAll').on('click',function (event) {
+    $('#center').prevAll().css('border','1px dotted black');
+});
+$('.first').on('click',function (event) {
+    
+    //$('#center').first().css('border','1px dotted black');
+    $('#center').parent().children().first().css('border','1px dotted black');
+        
+});
+$('.prev').on('click',function (event) {
+    $('#center').prev().css('border','1px dotted black');
+});
+$('.nextAll').on('click',function (event) {
+    $('#center').nextAll().css('border','1px dotted black');
+});
+$('.next').on('click',function (event) {
+    $('#center').next().css('border','1px dotted black');
+});
+$('.last').on('click',function (event) {
+    $('#center').parent().children().last().css('border','1px dotted black');
+});
+$('.siblings').on('click',function (event) {
+    $('#center').siblings().css('border','1px dotted black');
+});
+
+$('.children').on('click',function (event) {
+    //$('#center').children().css('border','1px dotted black');
+
+    /*var children = $('#center').children();
+    for (var i =0;i<children.length;i++){
+        if('third' ==children[i].text())
+        {
+            children[i].css('border','1px dotted black');
+        }
+    }*/
+    $('#center').children('#third').css('border','1px dotted black');
+
+});
+
+
+</script>

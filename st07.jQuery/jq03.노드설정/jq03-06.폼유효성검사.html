@@ -40,5 +40,89 @@
 </html>
 
 <!-- 임포트 -->
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    var pwd = '';
 
-
+    $('#regBtn').on('click',function (event) {
+
+        //회원가입시 validation검사
+        var uID = $('#userId').val(); //value속성 값 읽기
+        if (uID.length==0){
+            $('label').text('');
+            //<label name="userId">아이디를 입력하세오.</label>
+            $('label[name=userId]').html('아이디를 입력하세오.');
+            //$('label[name=userId]').text('아이디를 입력하세오.');
+            //커서
+            $('#userId').focus();
+            return false; //이벤트 취소
+        }
+        else{
+            //<label name="userId"></label>
+            $('label').text('');
+        }
+
+        var uName = $('#userName').val();
+        if (uName.length==0){
+            $('label').text('');
+            $('label[name=userName]').text('이름을 입력하세오.');
+            $('#userName').focus();
+            return false;
+        }
+        else{
+            $('label').text('');
+        }
+        
+        pwd = $('#pwd').val();
+        if (pwd.length==0){
+            $('label').text('');
+            $('label[name=pwd]').text('암호를 입력하세오.');
+            $('#pwd').focus();
+            return false;
+        }
+        else{
+            $('label').text('');
+        }
+
+        var pwdConfirm = $('#pwdConfirm').val();
+        if (pwdConfirm.length==0){
+            $('label').text('');
+            $('label[name=pwdConfirm]').text('암호를 확인하세오.');
+            $('#pwdConfirm').focus();
+
+            return false;
+        }
+        else{
+            $('label[name=pwdConfirm]').text('');
+            if (pwd == pwdConfirm){
+                //회원등록
+                $('label').text('');
+                
+                //폼태그찾고 submit실행하기 -- 이미지 버튼인 경우 많이 사용
+                //.submit(); --> <input type="submit" value = "실행">
+                $('form[name=fm]').submit();
+            }
+            else{
+                $('label').text('');
+                $('label[name=pwd]').text('암호가 일치하지 않습니다.');
+                
+                $('#pwd').val('');
+                $('#pwdConfirm').val('');
+                $('#pwd').focus();
+
+                return false;
+            }
+        }
+
+    });
+
+    $('#iniBtn').on('click',function (event) {
+        $('#userId').val('');
+        $('#userName').val('');        
+        $('#pwd').val('');
+        $('#pwdConfirm').val('');
+        
+        $('label').text('');
+     });
+</script>
+

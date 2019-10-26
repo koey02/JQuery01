@@ -39,4 +39,40 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $('#btn1').on('click',function (event) {
+        //<body style="background-color", "olive" >
+        $('body').css('background-color', "olive" );
+    });
+    $('#btn2').on('click',function (event) {
+        $('#p1').text('반갑습니다' );
+        
+    });
+    $('#btn3').on('click',function (event) {
+        $('#div1').text('');
+        
+    });
+
+    //hover 이벤트 안됨 -> mouseover/mouseout으로 구현
+    $('#btn4').on('mouseover',function (event) {
+        $('#btn4').css('background-color', 'black' );
+        $('#btn4').css('color', 'white' );
+    });
+
+    $('#btn4').on('mouseout',function (event) {
+        $('#btn4').css('background-color', 'gray' );
+        $('#btn4').css('color', 'black' );
+    });
+
+    //문제5
+    //$('a[href=http://www.naver.com]').css('color','white');
+    $('a').on('click',function (event) {
+        
+        var attr = $(this).attr('href');
+        if (attr =="http://www.naver.com")
+            return false;
+    });
+
+</script>
+
