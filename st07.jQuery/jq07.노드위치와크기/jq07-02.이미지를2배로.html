@@ -7,11 +7,33 @@
         img{  width: 140px; height: 120px; }
     </style>
     <!-- 임포트 -->
-    
-    
+
 </head>
 <body>
    <img src="images/im1.jpg" />
 </body>
 </html>
-
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$('img').on('click',function (event) {
+    var width =0, height =0;
+    
+    // 1. width, height 읽기
+    width = $(this).width();
+    height = $(this).height();
+    //alert ('width='+width+',height='+height);
+    
+    // 2. width, height 2배
+    width *= 2;
+    height *= 2;
+    //alert ('width='+width+',height='+height);
+
+    // 3. width, height 설정
+    $(this).width(width);
+    $(this).height(height);
+});
+
+
+</script>
+

@@ -10,6 +10,9 @@
 	    .odd{ background: rgba(51, 69, 205, 0.27); }
 	    .even{ background:#F2F2F2; }
 	    .hover{ background:#B2D8FF; }
+
+        /* <tbody><tr>  */
+        /*    tbody > tr:hover{ background:#B2D8FF;}*/
 	</style>
 </head>
 <body>
@@ -52,4 +55,44 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    // 짝수 tr이면 <tr> --> <tr class ='even'>
+    $('tbody > tr:even').addClass ('even');
+    // 홀수 tr이면 <tr> --> <tr class ='odd'>
+    $('tbody > tr:odd').addClass ('odd');
+
+
+    //1. 선택된 행을 칠하기 (수평설정)
+    /*  tbody > tr:hover{ background:#B2D8FF;} 구현 : 선택된 행을 칠하기*/
+    // :hover -> mouseover, mouseout
+    $('tbody > tr ').on('mouseover',function (event) {
+        // 설정 <tr> --> <tr class='hover'>
+        // this : 실행중인 tr을 의미한다.
+        $(this).addClass('hover');
+    });
+    $('tbody > tr ').on('mouseout',function (event) {
+        // 설정  <tr class='hover'> --> <tr>
+        $(this).removeClass('hover');
+    });
+
+
+    //수직 스트라이프 : 셀 병합과 마찬가지로 지우는 작업이 필요함
+    //td까지 찾아서 현재index+1 컬럼에 hover를 addClass
+    $('tbody > tr > td').on('mouseover',function (event) {
+        var colindex = $(this).index()+1; // 시작이 0부터이기 때문에
+        var str = $('td:nth-child('+colindex+')');
+        console.log(str); // td:nth-child(1),....td:nth-child(5)
+        $(str).addClass ('hover');
+
+    });
+    $('tbody > tr > td').on('mouseout',function (event) {
+        var colindex = $(this).index()+1; // 시작이 0부터이기 때문에
+        var str = $('td:nth-child('+colindex+')');
+        $(str).removeClass ('hover');
+    });
+
+
+
+</script>
+

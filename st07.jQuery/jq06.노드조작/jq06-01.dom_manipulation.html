@@ -47,4 +47,57 @@
     </div>
 </body>
 </html>
-
+
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    // 시간 가져오는 함수 만들기
+
+    var getTime = function () {
+        
+        var date = new Date();
+
+        var result = "";
+        result = date.toLocaleDateString() + date.toLocaleTimeString();
+        //result = date.toString();
+
+        return result;
+    }
+
+$('.html').on ('click',function (event) {
+    //$('#center').css ('border','5px solid blue');
+    //$('#center').html ('center입니다.');
+
+    // center 태그 안에 p태그 없애고 글자박스만 만듬
+    /* <div id ="center"> center <p class ="box one">...</div> -><div id ="center"> <div style = "border:5px solid blue"> 결혼은 늦게 </div></div> 로 변경*/
+    $('#center').html ('<div style = "border:5px solid blue"> 결혼은 늦게 </div>');
+});
+$('.prepend').on ('click',function (event) {
+    var time = getTime();
+
+    // 첫번째 자식(중요) 로 추가 <p> prepend </p>
+    $('#center').prepend ('<p> prepend :'+time+' </p>');
+    
+});
+
+$('.append').on ('click',function (event) {
+    var time = getTime();
+    // 마지막 자식(중요) 로 추가 <p> append </p>
+    $('#center').append ('<p>append : '+time+'</p>');
+});
+
+$('.before').on ('click',function (event) {
+    var time = getTime();
+    // 형 tag추가
+    $('#center').before ('<p> before : '+time+' </p>');
+});
+
+$('.after').on ('click',function (event) {
+    var time = getTime();
+    // 동생 tag추가
+    $('#center').after('<p>after : '+time+'</p>');
+});
+
+
+</script>
+

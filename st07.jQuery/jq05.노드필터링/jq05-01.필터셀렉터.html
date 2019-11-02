@@ -51,4 +51,101 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$('#eq').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('td:eq(7)').css('background-color','red'); //#ff0000
+});
+$('#gt').on('click',function (event) {
+//    $('td:gt(2)').css('background-color','yellow');
+    $('td').css('background-color','white');
+    $('tr:eq(1)>td:gt(2)').css('background-color','yellow');
+});
+$('#lt').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr:eq(1) > td:lt(2)').css('background-color','orange');
+});
+$('#odd').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr:eq(2) > td:odd').css('background-color','blue');
+});
+$('#even').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr:eq(2) > td:even').css('background-color','green');
+});
+$('#first').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr:eq(3)>td:first').css('background-color','pink');
+});
+$('#last').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr:eq(3)>td:last').css('background-color','skyblue');
+});
+
+//짝수 tr찾기
+$('#ex1').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr:even>td').css('background-color','red'); 
+});
+//홀수 td찾기
+$('#ex2').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('td:odd').css('background-color','green'); 
+});
+
+//짝수 tr찾고 홀수 td찾기
+$('#ex3').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr:even > td:odd').css('background-color','pink'); 
+});
+
+//3의배수 td찾기 :nth-child(Xn+Y)
+$('#ex4').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr > td:nth-child(3n+1)').css('background-color','orange'); 
+});
+// 각 tr의 첫번째 column을 찾기
+$('#ex5').on('click',function (event) {
+    $('td').css('background-color','white');
+//    $('tr> td:first').css('background-color','orange'); 
+    $('tr> td:nth-child(10n+1)').css('background-color','orange'); 
+});
+
+//각 tr의 첫번째와 마지막 column을 찾기
+$('#ex6').on('click',function (event) {
+    $('td').css('background-color','white');
+//    $('tr > td:first').css('background-color','red'); 
+//    $('tr > td:last').css('background-color','yellow'); 
+    $('tr > td:nth-child(10n+1)').css('background-color','red'); 
+    $('tr > td:nth-child(10n+0)').css('background-color','yellow'); 
+
+});
+//각 행의 첫번째 column들만 찾기
+$('#ex7').on('click',function (event) {
+    $('td').css('background-color','white');
+/*  $('tr:eq(0) > td:eq(2)').css('background-color','yellow'); 
+    $('tr:eq(1) > td:eq(2)').css('background-color','yellow'); 
+    $('tr:eq(2) > td:eq(2)').css('background-color','yellow'); 
+    $('tr:eq(3) > td:eq(2)').css('background-color','yellow'); */
+    $('tr').each(function (index) {
+        //alert ('tr index='+index);
+        $('tr:eq('+index+')> td:eq(2)').css('background-color','yellow'); 
+    });
+});
+
+//
+$('#ex8').on('click',function (event) {
+    $('td').css('background-color','white');
+    $('tr > td:nth-child(10n+1)').css('background-color','red'); 
+    $('tr > td:nth-child(10n+0)').css('background-color','yellow'); 
+    // column 합치기 -> colspan=6 추가하고 5개 column삭제
+//    $('tr:eq(2) > td:gt(3)').css('background-color','yellow'); 
+    $('tr:eq(2) > td:eq(4)').css('background-color','yellow'); 
+    $('tr:eq(2) > td:eq(4)').attr('colspan',6); 
+    $('tr:eq(2) > td:gt(4)').remove(); 
+});
+
+
+
+</script>

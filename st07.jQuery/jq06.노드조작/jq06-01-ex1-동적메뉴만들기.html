@@ -81,9 +81,22 @@
 </html>
 
 
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$('#add').on('click',function (event) {    
+    var data = $('#menuName').val();
+    if (data != ''){
+        $('.menu').append('<p>'+data+'</p>');
+        $('#menuName').val('');
+    }
+});
+
+</script>
 
 
 
 
 
-
+
+
+
