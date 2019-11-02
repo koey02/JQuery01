@@ -22,18 +22,18 @@
 </head>
 <body>
     <h2>show & hide 효과</h2>
-    <span class="showhide">show. </span>
-    <span class="showhide">hide. </span>
-    <span class="showhide">toggle. </span>
+    <span class="showhide" type="show">show. </span>
+    <span class="showhide" type="hide">hide. </span>
+    <span class="showhide" type="toggle">toggle. </span>
     <br>
 
     <p class="showhide">안녕하세요.반갑습니다.</p>
     <hr>
 
     <h2>slide 효과</h2>
-    <span class="slide">slide up</span>
-    <span class="slide">slide down</span>
-    <span class="slide">slide toggle</span>
+    <span class="slide" type="up">slide up</span>
+    <span class="slide" type="down">slide down</span>
+    <span class="slide" type="toggle">slide toggle</span>
     <br>
 
     <div class="slide"></div>
@@ -43,10 +43,10 @@
     <hr>
 
     <h2>fade 효과</h2>
-    <span class="fade"> fadeIn()     </span>
-    <span class="fade"> fadeOut()    </span>
-    <span class="fade"> fadeToggle() </span>
-    <span class="fade"> fadeTo()     </span>
+    <span class="fade" type="in"> fadeIn()     </span>
+    <span class="fade" type="out"> fadeOut()    </span>
+    <span class="fade" type="toggle"> fadeToggle() </span>
+    <span class="fade" type="to"> fadeTo()     </span>
     <br>
 
     <p class="fade">
@@ -69,9 +69,9 @@
         </ul>
         <img src="./images/easing.png">
     </div>
-    <span class="easing"> easing show. </span>
-    <span class="easing"> easing hide. </span>
-    <span class="easing"> easing toggle. </span>
+    <span class="easing" type="show"> easing show. </span>
+    <span class="easing" type="hide"> easing hide. </span>
+    <span class="easing" type="toggle"> easing toggle. </span>
     <select>
         <option>linear</option>
         <option>swing</option>
@@ -114,6 +114,118 @@
 </body>
 </html>
 
+<script src="../jquery-3.4.1.js"></script>
+<script src="../jquery.easing.1.3.js"></script>
+<script>
+/*$('span.showhide:eq(0)').on('click',function (event) {
+    alert();
+});*/
+
+$('.showhide[type=show]').on('click',function (event) {
+    $('p.showhide').show();
+});
+$('.showhide[type=hide]').on('click',function (event) {
+    $('p.showhide').hide();
+});
+$('.showhide[type=toggle]').on('click',function (event) {
+    $('p.showhide').toggle();
+});
+
+$('span.slide[type=up]').on('click',function (event) {
+    $('div.slide').slideUp(2000,'swing');
+});
+$('span.slide[type=down]').on('click',function (event) {
+    $('div.slide').slideDown(2000,'swing');
+});
+$('span.slide[type=toggle]').on('click',function (event) {
+    $('div.slide').slideToggle(2000,'swing');
+});
 
 
-
+$('span.fade[type=in]').on('click',function (event) {
+    $('p.fade').fadeIn('fast');
+    $('div.fade').fadeIn(5000,'linear');
+});
+$('span.fade[type=out]').on('click',function (event) {
+    $('p.fade').fadeOut('slow');
+    $('div.fade').fadeOut(2000,'linear');
+});
+$('span.fade[type=toggle]').on('click',function (event) {
+    $('p.fade').fadeToggle('normal');
+    $('div.fade').fadeToggle(2000,'linear');
+});
+
+$('span.fade[type=to]').on('click',function (event) {
+        /* opacity 값이 0.2와 같다면 opacity(투명도) : 0으로 설정 
+       opacity 값이 0.2와 같지 않다면 opacity(투명도) : 0.2으로 설정 */
+       var opacity = $('p.fade').css('opacity');
+
+        if (opacity == 0.2) {
+            opacity = 0;
+            $('p.fade').css('opacity', opacity);
+            $('p.fade').fadeOut(2000).hide();
+            
+        }    else{
+             opacity = 0.2;
+             $('p.fade').css('opacity', opacity);
+             $('p.fade').fadeTo(2000);
+
+             }
+
+    //<p class="fade" style="display:block; opacity:0.5;">
+ //   $('p.fade').fadeTo(2000,opacity); //opacity(투명도) : 0~1
+//    $('div.fade').fadeTo(2000,opacity);
+    
+});
+
+
+$('span.easing[type=show]').on('click',function (event) {
+    $('p.easing').hide();
+
+    var sel = $('select > option:selected').html();
+    //alert ('type 설정 ='+sel);
+    $('p.easing').show(2000,sel, function (params) {
+        $(this).addClass ('yellow');
+    });
+    //$('p.easing').animate({width:"400px"},1000,sel);
+    //$('p.easing').animate({display:block background:'yellow' },1000,sel);
+});
+$('span.easing[type=hide]').on('click',function (event) {
+    var sel = $('select > option:selected').html();
+    //$('p.easing').animate('hide',1000,sel);
+    $('p.easing').hide(1000,sel,function (params) {
+        $(this).removeClass ('yellow');
+    });
+});
+$('span.easing[type=toggle]').on('click',function (event) {
+    var sel = $('select > option:selected').html();
+    //alert ('select='+sel);
+    /*display가 block과 같으면 hide()
+      display가 none이면 show()    */
+  //<p class="easing yellow" style="display: block;">안녕하세요.반갑습니다.</p> 에서 style="display" 속성읽기->css
+      
+      var style = $('p.easing').css('display');
+    //  alert ('style='+style);
+
+      if (style == 'none'){
+//        alert ('display == non');
+        $('p.easing').show(2000,sel, function (params) {
+        $(this).addClass ('yellow');
+        });
+
+    }else{
+  //      alert ('display != non');
+        $('p.easing').hide(1000,sel,function (params) {
+        $(this).removeClass ('yellow');
+        });
+
+      }
+
+});
+
+
+</script>
+
+
+
+
