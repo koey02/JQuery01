@@ -135,5 +135,27 @@
 
 
 <!-- 임포트 -->
+<script src="../jquery-3.4.1.js"></script>
+<script>
+//1.페이지 로딩시 --- 회색글씨 hide
+$(document).ready(function () {
+    $('dd').hide();   
+});
 
-
+//2. 파란색 글자를 클릭하면 -- 바로 밑의 동생찾고, toggle
+//3. easing효과넣기 - show(),hide(),toggle()
+$('dt').on('click',function (event) {
+    //$(this).next().toggle();
+    $(this).next().slideToggle(1000,'linear');
+    
+
+});
+
+
+
+
+
+
+
+</script>
+

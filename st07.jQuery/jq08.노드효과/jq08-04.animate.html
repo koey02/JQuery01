@@ -92,10 +92,77 @@
             <div class="block"></div>
         </div>
     </div>
-    
+    <div>
+        <p>
+            태그 엘리먼트 이동
+            <ul>
+                <li>margin-left,margin-top을 이용한 위치이동 </li>
+                <li>left,top을 이용한 위치이동 </li>
+            </ul>
+        </p>
+    </div>
     <div>
          <img src="./images/easing.png">
     </div>
 </body>
 </html>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+// 좌우효과 --> animate 사용
+$('.leftbtn').on('click',function (event) {
+    
+    //easing 효과 가져오기
+    var effect = $('option:selected').html();
+    
+    // id="leftimage"를 찾고, animate호출, width=0, 1초, easing효과
+    // id="leftimage"를 찾고, animate호출, width=200, 1초, easing효과
+
+    //css width 설정하기 : .leftimage{width : 200px;} ->css에서는 ; 자바스크립트에서는 ,->{width:'200px'}
+    $('#leftimage').animate({width: '0px'},1000,effect,function () {  });
+    //width=0이면 안보이는것처럼 보임
+    $('#rightimage').animate({width:'200px'},1000,effect ,function () {  });
+    
+});
+$('.rightbtn').on('click',function (event) {
+    //alert();
+    //easing 효과 가져오기
+    var effect = $('option:selected').html();
+    
+    // id="leftimage"를 찾고, animate호출, width=200, 1초, easing효과
+    // id="leftimage"를 찾고, animate호출, width=0, 1초, easing효과
+
+    //css width 설정하기 : .leftimage{width : 200px;} ->css에서는 ; 자바스크립트에서는 ,->{width:'200px'}
+    $('#leftimage').animate({width: '200px'},1000,effect,function () {  });
+    //width=0이면 안보이는것처럼 보임
+    $('#rightimage').animate({width:'0px'},1000,effect,function () {  });
+    
+});
+
+$('#left').on('click',function (event) {
+    //alert();
+    var left = $('div.block').css('left'); //'100px'
+    left = left.replace('px','');           //'100'    
+    var nleft = Number(left);
+    nleft -= 50;
+    //$('div.block').css('left',nleft);
+
+    var effect = $('option:selected').html();
+    //$('div.block').animate({left:nleft+'px'},1000,effect,function () {  });
+    $('div.block').animate({left:'-=50px'},1000,effect,function () {  });
+
+});
+$('#right').on('click',function (event) {
+    //alert();
+    var left = $('div.block').css('left'); //'100px'
+    left = left.replace('px','');           //'100'    
+    var nleft = Number(left);
+    nleft += 50;
+    //$('div.block').css('left',nleft);
+
+    var effect = $('option:selected').html();
+//    $('div.block').animate({left:nleft+'px'},1000,effect,function () {  });
+    $('div.block').animate({left:'+=50px'},1000,effect,function () {  });
+    
+});
+</script>
 

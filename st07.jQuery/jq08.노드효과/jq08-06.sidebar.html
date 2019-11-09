@@ -26,6 +26,38 @@
 </body>
 </html>
 
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    /* 1. img에 클릭이벤트
+        2. aside 태그의 style속성에서 left값을 읽는다.
+        3. left 값이 0이면 left : -350px 적용, 아니면 left:0px 
+        4. left 값이 0이면 버튼이미지를 open, 아니면 close
+        5. left 값이 0이면 투명도 1, 아니면 투명도 0.5
+    */
+$('img').on('click',function (event) {
+    var left = $('aside').css('left');
+    if (left == '0px')
+    {
+        //$('aside').css('left', '-350px');
+        //$('aside').css('opacity', 1);
+        $('aside').animate({left:'-350px',opacity: 1},1000,'linear');
+
+        $(this).attr('src','sidebar/btn_open.png') ;
+        
+    }
+    else{
+        //$('aside').css('left', '0px');
+        //$('aside').css('opacity', 0.5);
+        $('aside').animate({left:'0px',opacity: 0.5},1000,'linear');
+        $(this).attr('src','sidebar/btn_close.png') ;
+        
+    }
+    
+    
+});
+
+</script>
 
 
-
+
+

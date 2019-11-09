@@ -55,4 +55,66 @@
 </html>
 
 <!-- 임포트 -->
-
+<script src="../jquery-3.4.1.js"></script>
+<script>
+
+// <a class="image3" href="images/image3.jpg">
+// <a class="image3" href="images/image4.jpg">
+$('a.image3').on('click',function (event){
+    //클릭된 a태그의 href속성값 가져오기 -> attr()
+    var src= $(this).attr('href');
+        
+    $('#img2').attr('src', src);
+
+    // href로 넘어가지 않도록 이벤트 취소
+    return false;
+});
+$('#but1').on('mouseover',function (event){
+    
+    $(this).attr('src','images/but2.gif');
+
+});
+
+$('#but1').on('mouseout',function (event){
+      $(this).attr('src','images/but1.gif');
+});
+
+$('#img-swap').on('mouseover',function (event){
+    $(this).attr('src','images/img_swap_on.png');
+});
+
+$('#img-swap').on('mouseout',function (event){
+    $(this).attr('src','images/img_swap_off.png');
+});
+    
+$('span').on('mouseover',function (event) {
+    $(this).css('background','yellow');
+});
+$('span').on('mousedown',function (event) {
+    $(this).css('background','blue');
+});
+$('span').on('mouseup',function (event) {
+    $(this).css('background','pink');
+});
+$('span').on('mouseout',function (event) {
+    $(this).css('background','red');
+});
+
+$('#sel').on('change',function (event) {
+    var select = $('#sel option:selected').html();
+    var value = $('#sel option:selected').attr('value');
+
+    $('#img').attr('src',value);
+
+});
+
+$('#ID').on('focus',function (event) {
+    $(this).css('outline','3px dotted red');
+
+});
+$('#ID').on('blur',function (event) {
+    $(this).css('outline','');
+});
+
+</script>
+

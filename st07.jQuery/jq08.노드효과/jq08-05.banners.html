@@ -47,20 +47,42 @@
     <button id="next">다음</button>
     <div class="banner">
         <div class="banner-container">
-            <img src="banners/1.png" >
-            <img src="banners/2.png" >
-            <img src="banners/3.png" >
-            <img src="banners/4.png" >
-            <img src="banners/5.png" >
-            <img src="banners/6.png" >
-            <img src="banners/7.png" >
-            <img src="banners/8.png" >
+            <img src="banners/1.png" id="1">
+            <img src="banners/2.png" id="2">
+            <img src="banners/3.png" id="3">
+            <img src="banners/4.png" id="4">
+            <img src="banners/5.png" id="5">
+            <img src="banners/6.png" id="6">
+            <img src="banners/7.png" id="7">
+            <img src="banners/8.png" id="8">
         </div>
     </div>
 </div>
 </body>
 </html>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    var no =1;
+   $('#prev').on('click',function (event) {
+    if (no>0){
+        no -= 1;
+        $('#'+no).animate ({width:'260px'},0,'linear');
+        $('#'+no).siblings().animate ({width:'0px'},0,'linear');
+    }
+
+    if (no==0) no =1;
+
+    });
+    $('#next').on('click',function (event) {
+        if (no<9){
+        no += 1;
+        $('#'+no).animate ({width:'260px'},0,'linear');
+        $('#'+no).siblings().animate ({width:'0px'},0,'linear');
+    }
+
+    });
+
+</script>
 
 
 
-
