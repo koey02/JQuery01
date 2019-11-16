@@ -98,6 +98,40 @@
 
 <!-- 개발 스크립트 작성-->
 <script>
+$('.btn_send').on('click',function (event) {
+    //<textarea class="req_long">의<input  class="req_input">찾기
+   var list = $('.req_long, .req_input'); 
+
+   //$(this).each(function(){   });
+
+   for(var i=0;i<list.length;i++){
+    if ($(list[i]).val() == ''){ //입력필요
+        list[i].focus();
+
+        //label태그 만들기
+        if ($(list[i]).next('label').length == 0){
+            // label 태그를 찾았는데 없는경우
+            $(list[i]).after('<label> 입력하세요. </label>');
+            return false;      
+        }
+        else{ 
+            // label 태그를 찾았는데 있는경우
+        }
+    }
+    
+   }
+    //submit이벤트는 <input type="submit" value="SEND"/>
+    //submit이벤트는 form을 작동시키는 이벤트다.
+   $('#frm_request').submit();
+
+});
+
+//keyup 될때 라벨태그 삭제
+$('.req_long, .req_input').on('keyup',function (event) {
+   
+    $(this).next().remove();
+
+});
 
 </script>
 
