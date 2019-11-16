@@ -121,5 +121,56 @@
 
 <link rel="stylesheet" href="css/blueimp-gallery.min.css">
 
+<!-- jquery  임포트-->
+<script src="js/jquery-3.3.1.js"></script>
 
-
+<!-- jquery 플러그인 임포트-->
+
+
+<!--- 공통 js 임포트 : header, footer 추가-->
+<script src="./js/common.js"></script>
+<script src="./js/blueimp-gallery.min.js"></script>
+<link rel="stylesheet" href="./css/blueimp-gallery.min.css">
+<!-- 개발 스크립트 작성-->
+<script>
+
+    // 해야할일 4
+   /* 
+$('.pro_list').on('click',function (event) {
+// event.target : 이벤트를 발생시킨 태그를 의미   
+    var target = event.target || event.srcElement;
+    // target.src =><img src="???"> img의 src속성을 의미한다.
+
+    //var index = target.src ? target.parent : target ;
+    var index= null;
+
+    if (target.src){ //target.src가 있으면
+        index = target.parentNode;
+    }
+    else{
+        index = target;
+    }
+    //blueimp갤러리 옵션설정
+    var options = {
+        'index' : index, 
+        'event' : event
+    };
+
+    // blueimp 갤러리 플러그인 
+    blueimp.Gallery($('.pro_list>li>a'), options);
+    
+});
+
+*/
+
+</script>
+
+<script src="../../../jq12.Plugin/jq12-03.popup갤러리/js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" href="./../../jq12.Plugin/jq12-03.popup갤러리/css/jquery.lightbox-0.5.css">
+<script>
+    $('ul.pro_list').on('click',function (event) {
+        $('ul.pro_list>li>a').lightBox();
+    });
+</script>
+
+

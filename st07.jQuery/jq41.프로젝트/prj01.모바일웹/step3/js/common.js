@@ -1,22 +1,10 @@
-"use strict";
+ // 페이지가 시작되자마자 header.html를 찾는다.   
+ // load로 읽어서 넣는다.
 
-$(document).ready( function(e) {
+ $(document).ready(function (event) {
+    //<div w3-include-header="header.html"></div>
+    $('div[w3-include-header]').load('header.html');
 
-    $('div[w3-include-header]').load( $('div[w3-include-header]').attr('w3-include-header') );
-    $('div[w3-include-footer]').load( $('div[w3-include-footer]').attr('w3-include-footer') );
-
-    // set toggle event at search bar
-    $('body').on( 'click', '#btn1', function(e){
-        $('#content').toggle();
-    });
-    
-    
-    console.log( $('ul.main_menu') );
-    
-    // menu hover event
-    $('body').on("mouseover", "ul.main_menu li", function(e){
-        //$(this).children('ul').show();
-    }).on("mouseout", "ul.main_menu li", function(e){
-        //$(this).children('ul').hide();
-    });
+    //<div w3-include-footer="footer.html"></div>
+    $('div[w3-include-footer]').load('footer.html');
 });
